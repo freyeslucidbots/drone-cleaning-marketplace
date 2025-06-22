@@ -5,17 +5,4 @@ services:
     plan: free
     buildCommand: npm install
     startCommand: npm start
-    rootDir: backend
-    envVars:
-      - key: NODE_ENV
-        value: production
-      - key: PORT
-        value: 10000
-      - key: DATABASE_URL
-        sync: false
-      - key: JWT_SECRET
-        sync: false
-      - key: STRIPE_SECRET_KEY
-        sync: false
-      - key: STRIPE_WEBHOOK_SECRET
-        sync: false 
+    rootDir: backend 
