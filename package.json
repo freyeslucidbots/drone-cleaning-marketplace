@@ -10,7 +10,7 @@
     "build": "cd frontend && npm run build",
     "start": "concurrently \"npm:start:frontend\" \"npm:start:backend\"",
     "start:frontend": "cd frontend && npm start",
-    "start:backend": "cd backend && node --env-file=/Users/felixreyes/Drone\\ Cleaning\\ Marketplace\\ /.env server.js",
+    "start:backend": "cd backend && node server.js",
     "seed": "cd backend && node seed.js",
     "install-all": "npm install && cd backend && npm install && cd ../frontend && npm install",
     "test": "npm run test:backend && npm run test:frontend",
