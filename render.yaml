@@ -17,6 +17,4 @@ services:
       - key: STRIPE_SECRET_KEY
         sync: false
       - key: STRIPE_WEBHOOK_SECRET
-        sync: false
-
-DATABASE_URL=postgresql://freyes:Lucid30!@localhost:5432/drone_marketplace 
+        sync: false 
