@@ -126,10 +126,26 @@ async function startServer() {
     
     // Try to sync database in all environments as fallback
     try {
-      await sequelize.sync({ alter: true });
+      console.log('🔄 Attempting to sync database...');
+      await sequelize.sync({ alter: true, force: false });
       console.log('✅ Database synced successfully.');
+      
+      // Verify tables exist
+      const tables = await sequelize.showAllSchemas();
+      console.log('📋 Available tables:', tables.map(t => t.name));
+      
     } catch (syncError) {
-      console.log('⚠️ Database sync failed, continuing with existing schema:', syncError.message);
+      console.error('❌ Database sync failed:', syncError.message);
+      console.error('❌ Sync error details:', syncError);
+      
+      // Try force sync as last resort
+      try {
+        console.log('🔄 Attempting force sync...');
+        await sequelize.sync({ force: true });
+        console.log('✅ Database force synced successfully.');
+      } catch (forceSyncError) {
+        console.error('❌ Force sync also failed:', forceSyncError.message);
+      }
     }
     
     app.listen(PORT, () => {
