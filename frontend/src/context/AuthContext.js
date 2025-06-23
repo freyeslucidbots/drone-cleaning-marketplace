@@ -2,8 +2,8 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const AuthContext = createContext();
 
-// API base URL - will be replaced with production URL after deployment
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+// API base URL - updated for production deployment
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://drone-marketplace-backend.onrender.com';
 
 export const useAuth = () => {
   const context = useContext(AuthContext);

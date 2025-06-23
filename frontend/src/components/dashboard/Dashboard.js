@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import './dashboard.css';
 
+// API base URL - updated for production deployment
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://drone-marketplace-backend.onrender.com';
+
 const Dashboard = () => {
   const { user, token } = useAuth();
   const [subscription, setSubscription] = useState(null);
@@ -21,7 +24,7 @@ const Dashboard = () => {
       
       // Fetch subscription status for pilots
       if (user.role === 'pilot') {
-        const subResponse = await fetch('http://localhost:5000/api/subscriptions/status', {
+        const subResponse = await fetch(`${API_BASE_URL}/api/subscriptions/status`, {
           headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'
@@ -36,7 +39,7 @@ const Dashboard = () => {
 
       // Fetch jobs for property managers
       if (user.role === 'property_manager') {
-        const jobsResponse = await fetch('http://localhost:5000/api/jobs', {
+        const jobsResponse = await fetch(`${API_BASE_URL}/api/jobs`, {
           headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'
@@ -50,7 +53,7 @@ const Dashboard = () => {
       }
 
       // Fetch bids for both roles
-      const bidsResponse = await fetch('http://localhost:5000/api/bids', {
+      const bidsResponse = await fetch(`${API_BASE_URL}/api/bids`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -71,7 +74,7 @@ const Dashboard = () => {
 
   const handleSubscriptionUpgrade = async (planId) => {
     try {
-      const response = await fetch('http://localhost:5000/api/subscriptions/create-checkout-session', {
+      const response = await fetch(`${API_BASE_URL}/api/subscriptions/create-checkout-session`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
