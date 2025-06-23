@@ -1,14 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './MainLayout.css';
+// The hero image will be referenced from the CSS file
 
 const MainLayout = () => {
+  const heroStyle = {
+    backgroundImage: `url(${process.env.PUBLIC_URL}/hero-image.jpg)`
+  };
+
   return (
     <div className="landing-page">
-      <section className="hero-section">
-        <h2>Professional Drone Cleaning Services</h2>
-        <p>Connect property managers with certified drone operators for safe, efficient, and professional exterior cleaning services.</p>
-        <Link to="/signup" className="btn btn-primary">Get Started Today</Link>
+      <section className="hero-section" style={heroStyle}>
+        <div className="hero-overlay"></div>
+        <div className="hero-content">
+          <h1>Your Property, Our Priority</h1>
+          <p>Connecting property managers with elite drone pilots for unparalleled exterior cleaning.</p>
+          <div className="hero-buttons">
+            <Link to="/signup" className="btn btn-primary">Get Started</Link>
+            <Link to="/jobs" className="btn btn-secondary">Browse Jobs</Link>
+          </div>
+        </div>
       </section>
 
       <section className="features-section">

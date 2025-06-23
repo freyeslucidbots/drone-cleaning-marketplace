@@ -1,21 +1,26 @@
 const { Sequelize } = require('sequelize');
 require('dotenv').config();
 
-const sequelize = new Sequelize(process.env.DATABASE_URL, {
-  dialect: 'postgres',
+// Use SQLite for local development if no DATABASE_URL is provided
+const databaseUrl = process.env.DATABASE_URL || 'sqlite:./database.sqlite';
+const isProduction = process.env.NODE_ENV === 'production';
+
+const sequelize = new Sequelize(databaseUrl, {
+  dialect: isProduction ? 'postgres' : 'sqlite',
   logging: process.env.NODE_ENV === 'development' ? console.log : false,
-  pool: {
+  pool: isProduction ? {
     max: 5,
     min: 0,
     acquire: 30000,
     idle: 10000
-  },
-  dialectOptions: {
-    ssl: process.env.NODE_ENV === 'production' ? {
+  } : undefined,
+  dialectOptions: isProduction ? {
+    ssl: {
       require: true,
       rejectUnauthorized: false
-    } : false
-  }
+    }
+  } : undefined,
+  storage: isProduction ? undefined : './database.sqlite'
 });
 
 // Import models
