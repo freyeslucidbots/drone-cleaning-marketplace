@@ -124,10 +124,12 @@ async function startServer() {
     await sequelize.authenticate();
     console.log('✅ Database connection established successfully.');
     
-    if (process.env.NODE_ENV === 'development') {
-      // Sync database in development (don't use in production)
+    // Try to sync database in all environments as fallback
+    try {
       await sequelize.sync({ alter: true });
-      console.log('✅ Database synced.');
+      console.log('✅ Database synced successfully.');
+    } catch (syncError) {
+      console.log('⚠️ Database sync failed, continuing with existing schema:', syncError.message);
     }
     
     app.listen(PORT, () => {
