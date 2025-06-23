@@ -76,14 +76,14 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const signup = async (email, password, role = 'property_manager') => {
+  const signup = async (email, password, role = 'property_manager', firstName, lastName) => {
     try {
       const response = await fetch(`${API_BASE_URL}/api/auth/signup`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ email, password, role })
+        body: JSON.stringify({ email, password, role, firstName, lastName })
       });
 
       const data = await response.json();

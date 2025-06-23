@@ -8,8 +8,8 @@ const { User } = require('../models');
 router.post('/signup', async (req, res) => {
   try {
     const { email, password, role, firstName, lastName } = req.body;
-    if (!email || !password) {
-      return res.status(400).json({ message: 'Email and password are required.' });
+    if (!email || !password || !firstName || !lastName) {
+      return res.status(400).json({ message: 'Email, password, first name, and last name are required.' });
     }
     
     const existingUser = await User.findOne({ where: { email } });
@@ -17,16 +17,11 @@ router.post('/signup', async (req, res) => {
       return res.status(409).json({ message: 'User already exists.' });
     }
     
-    // Extract name from email if not provided
-    const emailName = email.split('@')[0];
-    const userFirstName = firstName || emailName;
-    const userLastName = lastName || 'User';
-    
     const user = await User.create({ 
       email, 
       password, // Will be hashed by the model hook
-      firstName: userFirstName,
-      lastName: userLastName,
+      firstName,
+      lastName,
       role: role || 'property_manager' 
     });
     

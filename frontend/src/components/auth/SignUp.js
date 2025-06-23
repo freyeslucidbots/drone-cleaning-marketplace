@@ -6,6 +6,8 @@ import './auth.css';
 const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [userType, setUserType] = useState('property_manager');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -20,7 +22,7 @@ const SignUp = () => {
     setError('');
     setSuccess('');
 
-    const result = await signup(email, password, userType);
+    const result = await signup(email, password, userType, firstName, lastName);
     
     if (result.success) {
       setSuccess(result.message);
@@ -40,6 +42,31 @@ const SignUp = () => {
         <h2>Sign Up</h2>
         {error && <div className="error-message">{error}</div>}
         {success && <div className="success-message">{success}</div>}
+        
+        <div className="form-group">
+          <label htmlFor="firstName">First Name</label>
+          <input
+            type="text"
+            id="firstName"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            required
+            disabled={loading}
+          />
+        </div>
+        
+        <div className="form-group">
+          <label htmlFor="lastName">Last Name</label>
+          <input
+            type="text"
+            id="lastName"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            required
+            disabled={loading}
+          />
+        </div>
+        
         <div className="form-group">
           <label htmlFor="email">Email</label>
           <input
