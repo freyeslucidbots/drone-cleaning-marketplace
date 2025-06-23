@@ -7,16 +7,29 @@ const { User } = require('../models');
 // POST /api/auth/signup
 router.post('/signup', async (req, res) => {
   try {
-    const { email, password, role } = req.body;
+    const { email, password, role, firstName, lastName } = req.body;
     if (!email || !password) {
       return res.status(400).json({ message: 'Email and password are required.' });
     }
+    
     const existingUser = await User.findOne({ where: { email } });
     if (existingUser) {
       return res.status(409).json({ message: 'User already exists.' });
     }
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const user = await User.create({ email, password: hashedPassword, role: role || 'property_manager' });
+    
+    // Extract name from email if not provided
+    const emailName = email.split('@')[0];
+    const userFirstName = firstName || emailName;
+    const userLastName = lastName || 'User';
+    
+    const user = await User.create({ 
+      email, 
+      password, // Will be hashed by the model hook
+      firstName: userFirstName,
+      lastName: userLastName,
+      role: role || 'property_manager' 
+    });
+    
     return res.status(201).json({ message: 'User created successfully.' });
   } catch (err) {
     return res.status(500).json({ message: 'Server error.', error: err.message });
