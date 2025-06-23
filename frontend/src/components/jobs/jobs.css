@@ -1,0 +1,90 @@
+.jobs-page {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: #f9fafb;
+}
+
+.job-listings {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.job-card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.job-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.job-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.job-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #1a202c;
+  margin: 0;
+}
+
+.job-budget {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #2f855a;
+  white-space: nowrap;
+  margin-left: 1rem;
+}
+
+.job-location {
+  color: #718096;
+  font-weight: 500;
+  margin: 0 0 1rem 0;
+}
+
+.job-description {
+  color: #4a5568;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.job-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 1rem;
+}
+
+.job-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.job-tags .tag {
+  background-color: #f0f5ff;
+  color: #2b6cb0;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.job-posted {
+  font-size: 0.8rem;
+  color: #718096;
+  white-space: nowrap;
+} 
