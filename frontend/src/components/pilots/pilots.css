@@ -1,0 +1,120 @@
+.pilots-page {
+  padding: 2rem;
+  background-color: #f9fafb;
+}
+
+.map-section {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.map-section h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.pilot-map {
+  height: 400px;
+  border-radius: 8px;
+}
+
+.directory-section {
+  display: flex;
+  gap: 2rem;
+}
+
+.filters {
+  flex: 0 0 250px;
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  height: fit-content;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.pilot-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.pilot-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.pilot-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.pilot-card-header {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.pilot-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+.pilot-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.pilot-name {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.pilot-rating {
+  color: #f59e0b; /* A gold-like color */
+  font-size: 0.9rem;
+}
+
+.pilot-card-body {
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+.pilot-card-body p {
+  margin: 0 0 0.5rem 0;
+}
+
+.tags-section {
+  margin-top: 1rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.tag {
+  background-color: #e0e7ff;
+  color: #4338ca;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.tag.specialty-tag {
+  background-color: #d1fae5;
+  color: #065f46;
+} 
