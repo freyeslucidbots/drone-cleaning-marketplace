@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <header className="new-header">
       <div className="header-content">
-        <h1>Drone Cleaning Marketplace</h1>
+        <h1>Lucid Bots</h1>
         <p>Connect with certified drone operators for professional exterior cleaning services</p>
         <div className="header-buttons">
           <Link to="/signin" className="btn">Sign In</Link>

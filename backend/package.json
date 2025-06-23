@@ -1,7 +1,7 @@
 {
   "name": "drone-marketplace-backend",
   "version": "1.0.0",
-  "description": "Backend API for Exterior Drone Cleaning Marketplace",
+  "description": "Backend API for Lucid Bots Exterior Drone Cleaning Marketplace",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

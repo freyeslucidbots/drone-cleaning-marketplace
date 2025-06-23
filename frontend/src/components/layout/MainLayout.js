@@ -19,7 +19,7 @@ const MainLayout = () => {
         </div>
         <div className="feature-card">
           <h3>For Drone Pilots</h3>
-          <p>Join our marketplace of certified operators. Access exclusive jobs, build your portfolio, and grow your drone cleaning business.</p>
+          <p>Join Lucid Bots marketplace of certified operators. Access exclusive jobs, build your portfolio, and grow your drone cleaning business.</p>
           <Link to="/signup" className="btn btn-secondary">Become a Pilot</Link>
         </div>
         <div className="feature-card">

@@ -1,6 +1,6 @@
-# Drone Cleaning Marketplace
+# Lucid Bots - Drone Cleaning Marketplace
 
-A modern marketplace connecting property managers with certified drone pilots for exterior building cleaning services.
+A modern marketplace by Lucid Bots connecting property managers with certified drone pilots for exterior building cleaning services.
 
 ## 🚀 Live Demo
 

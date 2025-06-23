@@ -1,7 +1,7 @@
-# Drone Cleaning Marketplace - Deployment Guide
+# Lucid Bots - Drone Cleaning Marketplace - Deployment Guide
 
 ## Overview
-This guide will help you deploy your Drone Cleaning Marketplace to production using free hosting services.
+This guide will help you deploy your Lucid Bots Drone Cleaning Marketplace to production using free hosting services.
 
 ## Backend Deployment (Render.com)
 
